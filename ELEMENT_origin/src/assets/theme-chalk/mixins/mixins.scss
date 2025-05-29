@@ -1,0 +1,42 @@
+@import "./config.scss";
+
+/*
+  BEM相关
+*/
+
+
+//定义修饰函数
+@mixin m($modifier){
+  $selector:&;
+  $currentSelector:'';
+
+  //遍历参数数组,得到完成并集选择器形式拼接后的字符串变量currentSelector
+  @each $unit in $modifier {
+    $currentSelector:$currentSelector + $selector +$modifier--separator + $unit + ",";
+  }
+
+  @at-root {
+    #{$currentSelector}{
+      @content;//将flex接收到的内容进行直接的填充
+    }
+  }
+
+}
+@mixin when($state){
+  @at-root {
+    &.#{$state-prefix+ $state}{
+      @content;
+    }
+  }
+}
+//定义主混合函数
+@mixin b($block) {
+  $B : $namespace + '-' + $block;//定义混合函数内的局部拼接得到的变量--变量声明的过程中调用的介质变量则不需要使用#{}进行包裹
+
+  //@at-root 用于跳出嵌套层次，将样式或选择器输出到根级别，常用于 BEM 命名或控制选择器特异性。
+  @at-root {//此处为和改写函数体内的固定格式的方法调用
+    .#{$B} {
+      @content;//该参数接收传递过来的函数体中执行内容并且映射到需要提到根部的内容中
+    }
+  }
+}

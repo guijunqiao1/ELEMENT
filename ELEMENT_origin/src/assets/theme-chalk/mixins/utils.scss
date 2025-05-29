@@ -1,0 +1,24 @@
+@import "./config.scss";
+
+
+/*
+  功能相关
+*/
+
+//定义功能混合函数
+@mixin utils-clearfix {
+ $selector:&;
+
+  //@at-root 用于跳出嵌套层次，将样式或选择器输出到根级别，常用于 BEM 命名或控制选择器特异性。
+  @at-root {
+    #{$selector}::after,
+    #{$selector}::before {
+      display: block;
+      content: "";
+    }
+
+    #{$selector}::after {
+      clear: both;
+    }
+  }
+}

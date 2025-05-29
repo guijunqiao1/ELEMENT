@@ -1,16 +1,16 @@
-.el-row {
+@import "./mixins/mixins.scss";
+@import "./mixins/utils.scss";
 
-  &::after,
-  &::before {
-    display: block;
-    content: "";
-  }
+//scss数组--scss List：js中为[],scss中为()
 
-  &::after {
-    clear: both;
-  }
 
-  &--flex {
+
+@include b(row){ //调用混合函数同时传参为row
+
+  //在b这个主混合函数中调用utils-clearfix函数
+  @include utils-clearfix;
+
+  @include m(flex){
     display: flex;
 
     &::after,
@@ -19,33 +19,33 @@
     }
 
     // justify赋值类样式
-    &.is-justify-end {
+    @include when(justify-end) {
       justify-content: flex-end;
     }
 
-    &.is-justify-center {
+    @include when(justify-center) {
       justify-content: center;
     }
 
-    &.is-justify-space-between {
+    @include when(justify-space-between) {
       justify-content: space-between;
     }
 
-    &.is-justify-space-around {
+    @include when(justify-space-around) {
       justify-content: space-around;
     }
 
-    &.is-justify-space-evenly {
+    @include when(justify-space-evenly) {
       justify-content: space-evenly;
     }
 
     // align赋值类样式
 
-    &.is-align-middle {
+    @include when(align-middle) {
       align-items: center;
     }
 
-    &.is-align-bottom {
+    @include when(align-bottom) {
       align-items: flex-end;
     }
 

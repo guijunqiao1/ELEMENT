@@ -1,0 +1,9 @@
+// 混合 mixin .el-row BEM -> b (block)
+$namespace :"el";
+//枚举分隔符变量
+$element-separator:"__";
+$modifier--separator:"--";
+$state-prefix:"is-";
+
+
+// 该文件存放公共scss文件的变量
