@@ -1,10 +1,10 @@
 <template>
-  <div
-    :class="['el-row', { 'el-row--flex': type === 'flex' }, justify !== 'start' && `is-justify-${justify}`, align !== 'top' && `is-align-${align}`]"
-    :style="style">
+  <component :is="renderModel">
     <slot>1</slot>
-  </div>
+  </component>
 </template>
+
+
 
 <!-- 需要注意的是使用模板类名的方式进行赋值的时候若使用数组的形式进行赋值，则对于该元素使用的类名则实际为数组中的每个元素的取值(正常情
 况下需要满足元素为字符串的对齐要求)，同时当数组中的元素取值为对象的时候，则该元素类名取值为该属性名（需要属性值为true的情况）-->
@@ -18,9 +18,9 @@
 注意的是在slot中书写的文本在最终呈现内容的时候会被自动清除 -->
 
 <script setup lang="js" name="MyRow">
-import { defineProps, getCurrentInstance } from 'vue';
+import { getCurrentInstance, h } from 'vue';
 
-//调用和vue2中props配置项等价的接收父组件传参的方法
+//调用和vue2中props配置项等价的接收父组件传参的方法--该方法定义的props参数挂载到组件实例上和直接在外部传参等价
 defineProps({
   gutter: {
     default: 0,//控制默认值
@@ -45,10 +45,10 @@ defineProps({
       return ["top", "middle", "bottom"].includes(value);
     }
   },
-  // tag: {
-  //   default: "div",
-  //   type: String
-  // }
+  tag: {
+    default: "div",
+    type: String
+  }
 });
 
 //控制row向外侧靠齐
@@ -58,63 +58,29 @@ const style = {};
 style.marginLeft = -gutter / 2 + "px";
 style.marginRight = style.marginLeft;
 
+// console.log("插槽：子元素：");
+// console.dir(instance);
+// console.dir(instance.slots.default);
 
+//定义模板变量，存储虚拟dom渲染的内容
 
+// console.log("是否取等？" + (instance.props.justify === instance.props["justify"]));
+// console.log("前者：" + instance.props.justify);
+// console.log("后者：" + instance.props["justify"]);
+
+// console.log("type:" + instance.props.type);
+// console.log("justify:" + instance.props.justify);
+// console.log("align:" + instance.props.align);
+
+const renderModel = h(instance.props["tag"], {
+  class: ['el-row', instance.props["type"] === 'flex' && "el-row--flex",
+    ((instance.props['justify'] !== 'start') && `is-justify-${instance.props['justify']}`),
+    ((instance.props['align'] !== 'top') && `is-align-${instance.props['align']}`)],
+  style: style
+});
+// 上述需要注意的是对于对象的索引方式.和[]：
+// 前者不要求.后的属性名为已知的变量，而[]则要求[]内为已知的内容同时可以直接使用字面量的形式进行取值,同时需要注意的是就算是字面量的形式也要求是字符串
 
 </script>
 
-<style lang="scss" setup>
-.el-row {
-
-  &::after,
-  &::before {
-    display: block;
-    content: "";
-  }
-
-  &::after {
-    clear: both;
-  }
-
-  &--flex {
-    display: flex;
-
-    &::after,
-    &::before {
-      display: none;
-    }
-
-    // justify赋值类样式
-    &.is-justify-end {
-      justify-content: flex-end;
-    }
-
-    &.is-justify-center {
-      justify-content: center;
-    }
-
-    &.is-justify-space-between {
-      justify-content: space-between;
-    }
-
-    &.is-justify-space-around {
-      justify-content: space-around;
-    }
-
-    &.is-justify-space-evenly {
-      justify-content: space-evenly;
-    }
-
-    // align赋值类样式
-
-    &.is-align-middle {
-      align-items: center;
-    }
-
-    &.is-align-bottom {
-      align-items: flex-end;
-    }
-
-  }
-}
-</style>
+<style lang="scss"></style>

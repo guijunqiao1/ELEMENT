@@ -2,7 +2,7 @@
   <div id="app">
     <!-- 基础布局 -->
     <h1>基础布局</h1>
-    <el-row tag="h1">
+    <el-row tag="h2">
       <el-col :span="24">
         <div class="grid-content ep-bg-purple-dark"></div>
       </el-col>
@@ -272,20 +272,19 @@
 </template>
 
 <script setup lang="js" name="app">
-import ElRow from "@/components/MyRow.vue";
-import ElCol from "@/components/MyCol.vue";
+import ElRow from "./components/element/MyRow.vue";
+import ElCol from "./components/element/MyCol.vue";
 //需要注意的是使用的可以是引入的名称同时也可以是引入的组件整体中的template中存在的el-row标签的整体中的内容，本质利用的插槽的原理
 
 
-</script>
-<script>
-import { createVNode } from "vue";
-render(){
-  const node1 = createVNode("h1", {}, "我喜欢你");
-  return node1;
-}
+
+
+
+
 
 </script>
+
+
 
 <style lang="scss">
 .el-row {
@@ -316,4 +315,6 @@ render(){
 .ep-bg-purple-light {
   background: green;
 }
+
+
 </style>
