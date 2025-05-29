@@ -6,6 +6,7 @@
 
 
 @include b(row){ //调用混合函数同时传参为row
+  box-sizing: border-box;//防止后续添加了padding导致盒子尺寸发生溢出
 
   //在b这个主混合函数中调用utils-clearfix函数
   @include utils-clearfix;
