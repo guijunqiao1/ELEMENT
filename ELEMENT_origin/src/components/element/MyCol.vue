@@ -28,6 +28,7 @@ let parent = instance.parent;//定义存储父组件的变量
 while (parent && parent.type.__name !== "MyRow") {
   parent = parent.parent;
 }
+
 let gutter = parent.props.gutter;//获取到父组件中的gutter变量
 
 const style = {};
@@ -145,8 +146,6 @@ const classList = [];
 
 </script>
 
-<style lang="scss">
-
-</style>
+<style lang="scss"></style>
 
 <!-- 上方书写sass环境下的循环语句,需要注意的是调用其中变量的方式:在类名中使用#{}进行包裹，在样式块中直接使用$i即可 -->
