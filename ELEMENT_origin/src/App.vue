@@ -1,15 +1,13 @@
 <template>
   <div id="app">
-    <el-icon name="eleme"></el-icon> 
-    <el-icon name="loading"></el-icon> 
-    <i class="el-icon-loading"></i>
+    <el-button>默认按钮</el-button>
   </div>
 </template>
 
+<!-- 补充：上述的template中的组件标签的名称既可以是组件实例中的组件匹配上的类名也可以是引入组件的自定义名称，同时前者命名的优先级大于后者 -->
+
 <script setup lang="js" name="app">
-import ElIcon from "./components/element/icon/src/icon.vue";
-
-
+import ElButton from "./components/element/button/src/button.vue";
 
 
 </script>
