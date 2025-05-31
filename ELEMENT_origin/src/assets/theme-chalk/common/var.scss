@@ -29,7 +29,7 @@ $--color-primary-light-8:mix($--color-white,$--color-primary,80%) !default;//调
 $--color-primary-light-9:mix($--color-white,$--color-primary,90%) !default;//调用mix混合函数完成颜色混合
 //辅助色
 $--color-success:#67c23a !default;//成功颜色
-$--color-success-light:mix($--color-white,$--color-success,80%) !default;
+$--color-success-light:mix($--color-white,$--color-success,80%) !default; 
 $--color-success-lighter:mix($--color-white,$--color-success,90%) !default;
 $--color-warning:#e6a23c !default;//警告颜色
 $--color-warning-light:mix($--color-white,$--color-warning,80%) !default;
@@ -52,6 +52,7 @@ $--border-color-extra-light:#dcdfe6 !default;//四级边框
 
 /** Typography
 -------------------------------*/
+$--font-path:"fonts";//字体路径
 $--font-size-extra-large: 20px !default; // 主标题
 $--font-size-large: 18px !default; // 标题
 $--font-size-medium: 16px !default; // 小标题
