@@ -1,0 +1,8 @@
+@import "./mixins/mixins.scss";
+@import "./common/var.scss";
+
+@include b(header){
+  box-sizing: border-box;
+  padding:$--main-padding;
+  flex-shrink: 0;//配置header组件不会被容器的flex导致伸缩
+}

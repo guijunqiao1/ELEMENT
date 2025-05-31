@@ -1,0 +1,11 @@
+@import "./mixins/mixins.scss";
+@import "./common/var.scss";
+
+
+@include b(main){
+  box-sizing: border-box;
+  display: block;
+  overflow: hidden;
+  flex:1;
+  padding:$--main-padding;
+}
