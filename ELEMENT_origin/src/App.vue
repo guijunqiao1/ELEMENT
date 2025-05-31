@@ -1,319 +1,124 @@
 <template>
   <div id="app">
-    <!-- 基础布局 -->
-    <h1>基础布局</h1>
-    <el-row tag="h1">
-      <el-col :span="24">
-        <div class="grid-content ep-bg-purple-dark"></div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="12">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="12">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-    </el-row>
-    <el-row>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-    </el-row>
-
+    <el-container>
+      <el-header>Header</el-header>
+      <el-main>Main</el-main>
+      <div></div>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-main>Main</el-main>
+      <el-footer>Footer</el-footer>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-main>Main</el-main>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-container>
+        <el-aside width="200px">Aside</el-aside>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-header>Header</el-header>
+      <el-container>
+        <el-aside width="200px">Aside</el-aside>
+        <el-container>
+          <el-main>Main</el-main>
+          <el-footer>Footer</el-footer>
+        </el-container>
+      </el-container>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+      </el-container>
+    </el-container>
+    <br>
+    <hr>
+    <br>
+    <el-container>
+      <el-aside width="200px">Aside</el-aside>
+      <el-container>
+        <el-header>Header</el-header>
+        <el-main>Main</el-main>
+        <el-footer>Footer</el-footer>
+      </el-container>
+    </el-container>
     <br>
     <br>
     <br>
     <br>
     <br>
-
-    <!-- 分栏间隔 -->
-    <h1>分栏间隔</h1>
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- 混合布局 -->
-    <h1>混合布局</h1>
-    <el-row :gutter="20">
-      <el-col :span="16">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="8">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="16">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="4">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- 列偏移 -->
-    <h1>列偏移</h1>
-    <el-row :gutter="20">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6" :offset="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="6" :push="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6" :push="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12" :offset="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- 对齐方式 -->
-    <h1>对齐方式</h1>
-    <el-row class="row-bg" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row class="row-bg" justify="center" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row class="row-bg" justify="end" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row class="row-bg" justify="space-between" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row class="row-bg" justify="space-around" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-    <el-row class="row-bg" justify="space-evenly" type="flex">
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :span="6">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- 响应式布局 -->
-    <h1>响应式布局</h1>
-    <el-row :gutter="10">
-      <el-col :xs="{ span: 4, offset: 5 }" :sm="6" :md="4" :lg="3" :xl="1">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-      <el-col :xs="4" :sm="6" :md="8" :lg="9" :xl="11">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-      <el-col :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-        <div class="grid-content ep-bg-purple-light"></div>
-      </el-col>
-    </el-row>
-
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-
-    <!-- 基于断点的隐藏类 -->
-    <h1>基于断点的隐藏类</h1>
-    <el-row :gutter="10">
-      <el-col class="hidden-xs-only" :xs="8" :sm="6" :md="4" :lg="3" :xl="1">
-        <div class="grid-content ep-bg-purple"></div>
-      </el-col>
-    </el-row>
   </div>
 </template>
 
 <script setup lang="js" name="app">
-import ElRow from "@/components/MyRow.vue";
-import ElCol from "@/components/MyCol.vue";
-//需要注意的是使用的可以是引入的名称同时也可以是引入的组件整体中的template中存在的el-row标签的整体中的内容，本质利用的插槽的原理
+import ElContainer from "./components/container/src/Container.vue";
+import ElMain from "./components/main/src/Main.vue";
+import ElFooter from "./components/footer/src/footer.vue";
+import ElHeader from "./components/header/src/header.vue";
+import ElAside from "./components/aside/src/aside.vue";
 
 
-</script>
-<script>
-import { createVNode } from "vue";
-render(){
-  const node1 = createVNode("h1", {}, "我喜欢你");
-  return node1;
-}
+
+
 
 </script>
 
-<style lang="scss">
-.el-row {
-  margin-bottom: 20px;
+
+<style lang="css">
+.el-header,
+.el-footer {
+  text-align: center;
+  background-color: #B3C0D1;
+  color: #333;
+  line-height: 60px;
 }
 
-.el-row:last-child {
-  margin-bottom: 0;
+.el-aside {
+  background-color: #D3DCE6;
+  color: #333;
+  text-align: center;
+  line-height: 200px;
 }
 
-.el-col {
-  border-radius: 4px;
+.el-main {
+  background-color: #E9EEF3;
+  color: #333;
+  text-align: center;
+  line-height: 160px;
 }
 
-.grid-content {
-  border-radius: 4px;
-  min-height: 36px;
+body>.el-container {
+  margin-bottom: 40px;
 }
 
-.ep-bg-purple-dark {
-  background-color: gray;
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {
+  line-height: 260px;
 }
 
-.ep-bg-purple {
-  background-color: skyblue;
-}
-
-.ep-bg-purple-light {
-  background: green;
+.el-container:nth-child(7) .el-aside {
+  line-height: 320px;
 }
 </style>
