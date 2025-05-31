@@ -18,7 +18,7 @@
 注意的是在slot中书写的文本在最终呈现内容的时候会被自动清除 -->
 
 <script setup lang="js" name="MyRow">
-import { getCurrentInstance, h } from 'vue';
+import { getCurrentInstance, h, render, useSlots } from 'vue';
 
 //调用和vue2中props配置项等价的接收父组件传参的方法--该方法定义的props参数挂载到组件实例上和直接在外部传参等价
 defineProps({
@@ -78,6 +78,8 @@ const renderModel = h(instance.props["tag"], {
     ((instance.props['align'] !== 'top') && `is-align-${instance.props['align']}`)],
   style: style
 });
+
+
 // 上述需要注意的是对于对象的索引方式.和[]：
 // 前者不要求.后的属性名为已知的变量，而[]则要求[]内为已知的内容同时可以直接使用字面量的形式进行取值,同时需要注意的是就算是字面量的形式也要求是字符串
 

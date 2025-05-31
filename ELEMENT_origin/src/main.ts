@@ -6,4 +6,4 @@ import "./assets/theme-chalk/col.scss";
 import "./assets/theme-chalk/row.scss";
 import "./assets/theme-chalk/display.scss";
 
-createApp(App).mount('#app')
+createApp(App).mount('#app');

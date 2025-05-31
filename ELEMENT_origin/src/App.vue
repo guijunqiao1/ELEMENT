@@ -272,9 +272,9 @@
 </template>
 
 <script setup lang="js" name="app">
-import ElRow from "./components/element/MyRow.vue";
-import ElCol from "./components/element/MyCol.vue";
-//需要注意的是使用的可以是引入的名称同时也可以是引入的组件整体中的template中存在的el-row标签的整体中的内容，本质利用的插槽的原理
+import ElHeader from "./components/header/src/header.vue";
+import ElFooter from "./components/footer/src/footer.vue";
+import ElContainer from "./components/container/src/Container.vue";
 
 
 
