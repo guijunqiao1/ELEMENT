@@ -1,0 +1,57 @@
+@import "./config.scss";
+
+/*
+  BEM相关
+*/
+
+
+//定义修饰函数
+@mixin m($modifier){
+  $selector:&;
+  $currentSelector:'';
+
+  //遍历参数数组,得到完成并集选择器形式拼接后的字符串变量currentSelector
+  @each $unit in $modifier {
+    $currentSelector:$currentSelector + $selector +$modifier--separator + $unit + ",";
+  }
+
+  @at-root {
+    #{$currentSelector}{
+      @content;//将flex接收到的内容进行直接的填充
+    }
+  }
+
+}
+@mixin when($state){
+  @at-root {
+    &.#{$state-prefix+ $state}{
+      @content;
+    }
+  }
+}
+//定义主混合函数
+@mixin b($block) {
+  $B : $namespace + '-' + $block;//定义混合函数内的局部拼接得到的变量--变量声明的过程中调用的介质变量则不需要使用#{}进行包裹
+
+  //@at-root 用于跳出嵌套层次，将样式或选择器输出到根级别，常用于 BEM 命名或控制选择器特异性。
+  @at-root {//此处为和改写函数体内的固定格式的方法调用
+    .#{$B} {
+      @content;//该参数接收传递过来的函数体中执行内容并且映射到需要提到根部的内容中
+    }
+  }
+}
+
+
+//断点（break points）
+//媒体查询统一混合函数
+@mixin res($key,$map:$--breakPoints){//使用:表示设置该参数的默认值
+  @if map-has-key($map,$key){//判断map中是否有key对应的value
+    @media only screen and #{inspect(map-get($map,$key))} {//需要注意调用的函数本质上是需要获取其中的返回值，同时返回值被当作变量处理--也就是需要使用#{}包裹返回值
+      //同时需要注意使用map方法得到的value数据一般最好使用inspect函数进行包裹，因为scss无法直接解析原value
+      @content;
+    }
+  }
+  @else {
+    @warn "undefined points:`#{$map}`"
+  }
+}
