@@ -6,6 +6,7 @@
 */
 
 //定义功能混合函数
+//清除浮动
 @mixin utils-clearfix {
  $selector:&;
 
@@ -21,4 +22,13 @@
       clear: both;
     }
   }
+}
+
+
+//防止文本被复制--编辑器中属性值直接被划掉需要考虑上兼容性的问题
+@mixin utils-user-select ($value) {
+  user-select: $value;
+  -moz-user-select: $value;
+  -webkit-user-select: $value;
+  -ms-user-select: $value;
 }
