@@ -17,11 +17,11 @@
     color: $fontColor;
   }
 
-  &.is-plain {//此处为交集选择器,针对朴素风格同时明确按钮类型的按钮进行下方的样式覆盖设计
+  &.is-plain {//此处为交集选择器,针对朴素风格同时明确按钮类型的按钮进行下方的样式覆盖设计--因为plain一定会随着type一起传递故设置交集选择器即可
     @include button-plain($backgroundColor);
   }
 
-  &.is-disabled {//和上方同理
+  &.is-disabled {//和上方同理--针对无is-plain而有type的disabled按钮情况的样式设计,cursor:not-allowed在button.scss中提前设置过了
     background-color: mix($--color-white, $backgroundColor);
     border-color: mix($--color-white, $backgroundColor);
     color: $--color-white;
@@ -49,5 +49,19 @@
     background-color: mix($--color-white, $color, 90%);
     border-color: mix($--color-white, $color, 80%);
     color: mix($--color-white, $color, 40%);
+  }
+}
+
+@mixin button-size ($padding-vertical, $padding-horizontal, $font-size, $border-radius) {
+  padding: $padding-vertical $padding-horizontal;
+  font-size: $font-size;
+  border-radius: $border-radius;
+
+  &.is-round {
+    padding: $padding-vertical $padding-horizontal;
+  }
+
+  &.is-circle {
+    padding: $padding-vertical;
   }
 }

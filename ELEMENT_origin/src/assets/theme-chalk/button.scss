@@ -20,6 +20,7 @@
   font-weight: $--button-font-weight;
   border-radius: $--button-border-radius;
 
+  @include button-size($--button-padding-vertical, $--button-padding-horizontal, $--button-font-size, $--button-border-radius);
   @include utils-user-select(none);
 
 
@@ -38,6 +39,13 @@
   &:active {
     border-color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
     color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+  }
+
+  //控制图标标签与文本标签的间距
+  [class *= 'el-icon-']{
+    & + span {
+      margin-left: 5px;
+    }
   }
 
   //下方在b函数内部调用了when方法表示的是在el-button的基础上进行相应的el-button--各种“风格”情况下的按钮类型进行样式设计
@@ -75,9 +83,11 @@
       border-color: $--button-disabled-border-color;
       color: $--button-disabled-font-color;
     }
+    // 上述的并集选择器的权重针对无is-plain而有is-disabled的元素则cursor会被_button继承，而其它会被覆盖，因为并集选择器优先使用
+    //匹配上同时权重最大的子选择器的权重，而前者的选择器的权重和后者相等，但是后来者居上故覆盖后三个属性
   }
 
-  // 下方调用when函数为el-button--对应上不同情况的同一个风格的类名进行内容添加，
+  // 下方调用when函数为el-button--对应上不同情况的同一个风格的类名进行内容添加  
   //具体添加实现由button-variant方法提供
 
   @include m(primary) {
@@ -98,6 +108,43 @@
   
   @include m(danger) {
     @include button-variant($--button-danger-background-color, $--button-danger-border-color, $--button-danger-font-color);
+  }
+
+  @include m(text) {
+    padding-left: 0;
+    padding-right: 0;
+    border-color: transparent;
+    background-color: transparent;
+    color: $--color-primary;
+
+    &:hover {
+      background-color: transparent;
+      border-color: transparent;
+      color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
+    }
+
+    &:active {
+      background-color: transparent;
+      border-color: transparent;
+      color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
+    }
+
+    &.is-disabled,
+    &.is-disabled:hover {
+      border-color: transparent;
+    }
+  }
+
+  @include m(medium) {
+    @include button-size($--button-medium-padding-vertical, $--button-medium-padding-horizontal, $--button-medium-font-size, $--button-medium-border-radius);
+  }
+  
+  @include m(small) {
+    @include button-size($--button-small-padding-vertical, $--button-small-padding-horizontal, $--button-medium-font-size, $--button-small-border-radius);
+  }
+  
+  @include m(mini) {
+    @include button-size($--button-mini-padding-vertical, $--button-mini-padding-horizontal, $--button-medium-font-size, $--button-mini-border-radius);
   }
 
 }
