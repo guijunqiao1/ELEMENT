@@ -29,7 +29,8 @@
     margin-left: 10px;
   }
   
-  &:hover {
+  &:hover,
+  &:focus {
     background-color: $--color-primary-light-9;
     border-color: $--color-primary-light-7;
     color: $--color-primary;
@@ -52,7 +53,8 @@
 
   // 朴素按钮统一样式
   @include when(plain) {//此为针对所有的is-plain类进行样式设计
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: $--color-white;
       border-color: $--color-primary;
       color: $--color-primary;
@@ -77,6 +79,8 @@
   // 禁用按钮统一样式
   @include when(disabled) {//为is-disabled和is-disabled.is-plain的双重风格进行相同的样式设计
     &,
+    &:hover,
+    &:focus,
     &.is-plain {
       cursor: not-allowed;
       background-color: $--button-disabled-background-color;
@@ -117,7 +121,8 @@
     background-color: transparent;
     color: $--color-primary;
 
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: transparent;
       border-color: transparent;
       color: mix($--color-white, $--color-primary, $--button-hover-tint-percent);
@@ -130,7 +135,8 @@
     }
 
     &.is-disabled,
-    &.is-disabled:hover {
+    &.is-disabled:hover,
+    &.is-disabled:focus {
       border-color: transparent;
     }
   }
