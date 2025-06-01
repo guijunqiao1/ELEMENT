@@ -4,7 +4,8 @@
 @import "./mixins/utils.scss";
 
 
-@include b(button){
+@include b(button){//为el-button添加上了统一样式
+  line-height: 1;//防止icon按照基线对齐导致椭圆的产生
   cursor: pointer;
   outline: none;
   margin: 0;
@@ -39,6 +40,9 @@
     color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
   }
 
+  //下方在b函数内部调用了when方法表示的是在el-button的基础上进行相应的el-button--各种“风格”情况下的按钮类型进行样式设计
+
+  // 朴素按钮统一样式
   @include when(plain) {//此为针对所有的is-plain类进行样式设计
     &:hover {
       background-color: $--color-white;
@@ -51,6 +55,30 @@
       color: mix($--color-black, $--color-primary, 10%);
     }
   }
+  // 圆角按钮统一样式
+  @include when(round) {
+    border-radius: 20px;
+    padding-left: 23px;
+    padding-right: 23px;
+  }
+  // 圆形按钮统一样式
+  @include when(circle) {
+    border-radius: 50%;
+    padding: $--button-padding-vertical;
+  }
+  // 禁用按钮统一样式
+  @include when(disabled) {//为is-disabled和is-disabled.is-plain的双重风格进行相同的样式设计
+    &,
+    &.is-plain {
+      cursor: not-allowed;
+      background-color: $--button-disabled-background-color;
+      border-color: $--button-disabled-border-color;
+      color: $--button-disabled-font-color;
+    }
+  }
+
+  // 下方调用when函数为el-button--对应上不同情况的同一个风格的类名进行内容添加，
+  //具体添加实现由button-variant方法提供
 
   @include m(primary) {
     @include button-variant($--button-primary-background-color, $--button-primary-border-color, $--button-primary-font-color);

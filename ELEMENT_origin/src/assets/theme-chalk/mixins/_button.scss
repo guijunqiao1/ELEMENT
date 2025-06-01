@@ -17,8 +17,14 @@
     color: $fontColor;
   }
 
-  &.is-plain {//此处为交集选择器,针对朴素同时明确按钮类型的按钮进行下方的样式覆盖设计
+  &.is-plain {//此处为交集选择器,针对朴素风格同时明确按钮类型的按钮进行下方的样式覆盖设计
     @include button-plain($backgroundColor);
+  }
+
+  &.is-disabled {//和上方同理
+    background-color: mix($--color-white, $backgroundColor);
+    border-color: mix($--color-white, $backgroundColor);
+    color: $--color-white;
   }
 }
 
@@ -37,5 +43,11 @@
     background-color: mix($--color-black, $color, $--button-active-shade-percent);
     border-color: mix($--color-black, $color, $--button-active-shade-percent);
     color: $--color-white;
+  }
+
+  &.is-disabled {//此处为三层嵌套关系--在按钮类型确定的情况下选上了风格此时又选中了disabled类型的三层交集结构
+    background-color: mix($--color-white, $color, 90%);
+    border-color: mix($--color-white, $color, 80%);
+    color: mix($--color-white, $color, 40%);
   }
 }

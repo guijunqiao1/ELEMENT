@@ -1,5 +1,5 @@
 <template>
-  <button :class="['el-button',type? `el-button--${type}`:'', plain ? 'is-plain' : '' ]">
+  <button :class="['el-button',type? `el-button--${type}`:'', plain ? 'is-plain' : '',round ? 'is-round':'',circle?'is-circle':'',icon?icon:'',disabled?'is-disabled':'']">
     <slot></slot>
   </button>
 </template>
@@ -13,6 +13,18 @@
       type:String
     },
     plain:{
+      type:Boolean
+    },
+    round:{
+      type:Boolean
+    },
+    circle:{
+      type:Boolean
+    },
+    icon:{
+      type:String
+    },
+    disabled:{
       type:Boolean
     }
   })
