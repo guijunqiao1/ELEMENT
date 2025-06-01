@@ -1,5 +1,5 @@
 <template>
-  <button :class="['el-button',type? `el-button--${type}`:'']">
+  <button :class="['el-button',type? `el-button--${type}`:'', plain ? 'is-plain' : '' ]">
     <slot></slot>
   </button>
 </template>
@@ -11,8 +11,13 @@
   defineProps({
     type:{
       type:String
+    },
+    plain:{
+      type:Boolean
     }
   })
+
+
 
 </script>
 

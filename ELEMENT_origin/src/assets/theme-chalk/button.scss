@@ -39,6 +39,19 @@
     color: mix($--color-black, $--color-primary, $--button-active-shade-percent);
   }
 
+  @include when(plain) {//此为针对所有的is-plain类进行样式设计
+    &:hover {
+      background-color: $--color-white;
+      border-color: $--color-primary;
+      color: $--color-primary;
+    }
+
+    &:active {
+      border-color: mix($--color-black, $--color-primary, 10%);
+      color: mix($--color-black, $--color-primary, 10%);
+    }
+  }
+
   @include m(primary) {
     @include button-variant($--button-primary-background-color, $--button-primary-border-color, $--button-primary-font-color);
   }

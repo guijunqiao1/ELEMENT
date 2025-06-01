@@ -16,4 +16,26 @@
     border-color: mix($--color-black, $borderColor, $--button-active-shade-percent);
     color: $fontColor;
   }
+
+  &.is-plain {//此处为交集选择器,针对朴素同时明确按钮类型的按钮进行下方的样式覆盖设计
+    @include button-plain($backgroundColor);
+  }
+}
+
+@mixin button-plain ($color) {
+  background-color: mix($--color-white, $color, 90%);
+  border-color: mix($--color-white, $color, 60%);
+  color: $color;
+
+  &:hover {
+    background-color: $color;
+    border-color: $color;
+    color: $--color-white;
+  }
+
+  &:active {
+    background-color: mix($--color-black, $color, $--button-active-shade-percent);
+    border-color: mix($--color-black, $color, $--button-active-shade-percent);
+    color: $--color-white;
+  }
 }
